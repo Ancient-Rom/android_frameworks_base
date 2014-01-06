@@ -4942,6 +4942,12 @@ public final class Settings {
         /** End of ABC system settings**/
 
         /**
+         * Force expanded notifications on all apps that support it.
+         * @hide
+         */
+        public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+
+        /**
          * Whether to allow use of system themes alongside substratum
          *
          * @hide
