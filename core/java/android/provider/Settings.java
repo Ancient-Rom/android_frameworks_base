@@ -4763,6 +4763,12 @@ public final class Settings {
                 SettingsValidators.InclusiveIntegerRangeValidator(100, 255);
 
         /**
+         * Whether to notification when the battery is fully charged
+         * @hide
+         */
+        public static final String BATTERY_FULLY_CHARGED_NOTIF = "battery_fully_charged_notif";
+
+        /**
          * some devices have a extra hw button e.g. n3 on the back on the
          * fingerprint sensor. allow mapping button to key
          *
