@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.superior;
+package com.android.internal.util.ancient;
 
 import android.util.Log;
 

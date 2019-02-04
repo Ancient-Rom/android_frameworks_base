@@ -151,7 +151,7 @@ import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageChangedListener;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageState;
-import com.android.internal.util.superior.SuperiorUtils;
+import com.android.internal.util.ancient.AncientUtils;
 import com.android.internal.utils.SmartPackageMonitor;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.MessagingGroup;
@@ -2393,8 +2393,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     public boolean isUsingBlackTheme() {
         return ThemeAccentUtils.isUsingBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
-     public boolean isUsingSuperiorTheme() {
-         return ThemeAccentUtils.isUsingSuperiorTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+     public boolean isUsingAncientTheme() {
+         return ThemeAccentUtils.isUsingAncientTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
      }
 
     // Unloads the stock dark theme
@@ -4381,7 +4381,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
         boolean useBlackTheme = false;
         boolean useDarkTheme = false;
-        boolean useSuperiorTheme = false;
+        boolean useAncientTheme = false;
         if (mCurrentTheme == 0) {
             // The system wallpaper defines if QS should be light or dark.
             WallpaperColors systemColors = mColorExtractor
@@ -4396,7 +4396,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else {
             useDarkTheme = mCurrentTheme == 2;
             useBlackTheme = mCurrentTheme == 3;
-            useSuperiorTheme = mCurrentTheme == 4;
+            useAncientTheme = mCurrentTheme == 4;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             // Check for black and white accent so we don't end up
@@ -4410,14 +4410,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             // unfuckBlackWhiteAccent();
             ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlackTheme);
         }
-        if (isUsingSuperiorTheme() != useSuperiorTheme) {
+        if (isUsingAncientTheme() != useAncientTheme) {
              // Check for black and white accent so we don't end up
              // with white on white or black on black
              // unfuckBlackWhiteAccent();
-             ThemeAccentUtils.setLightSuperiorTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useSuperiorTheme);
+             ThemeAccentUtils.setLightAncientTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useAncientTheme);
          }
 	if (mUiModeManager != null) {
-		mUiModeManager.setNightMode(useDarkTheme || useBlackTheme || useSuperiorTheme ?
+		mUiModeManager.setNightMode(useDarkTheme || useBlackTheme || useAncientTheme ?
 			UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
 	}
 

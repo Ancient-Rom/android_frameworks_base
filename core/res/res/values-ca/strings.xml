@@ -552,11 +552,11 @@
     <string name="permlab_accessNotifications" msgid="7673416487873432268">"accedeix a les notificacions"</string>
     <string name="permdesc_accessNotifications" msgid="458457742683431387">"Permet que l\'aplicació recuperi, examini i esborri les notificacions, incloses les que han publicat altres aplicacions."</string>
     <string name="permlab_bindNotificationListenerService" msgid="7057764742211656654">"vincula a un servei oient de notificacions"</string>
-    <string name="permdesc_bindNotificationListenerService" msgid="985697918576902986">"Permet que el titular vinculi la interfície de nivell superior d\'un servei oient de notificacions. No s\'hauria de necessitar mai per a les aplicacions normals."</string>
+    <string name="permdesc_bindNotificationListenerService" msgid="985697918576902986">"Permet que el titular vinculi la interfície de nivell ancient d\'un servei oient de notificacions. No s\'hauria de necessitar mai per a les aplicacions normals."</string>
     <string name="permlab_bindConditionProviderService" msgid="1180107672332704641">"enllaçar amb el servei de proveïdor de condicions"</string>
-    <string name="permdesc_bindConditionProviderService" msgid="1680513931165058425">"Permet enllaçar amb la interfície de nivell superior d\'un servei de proveïdor de condicions. No ha de ser mai necessari per a aplicacions normals."</string>
+    <string name="permdesc_bindConditionProviderService" msgid="1680513931165058425">"Permet enllaçar amb la interfície de nivell ancient d\'un servei de proveïdor de condicions. No ha de ser mai necessari per a aplicacions normals."</string>
     <string name="permlab_bindDreamService" msgid="4153646965978563462">"enllaçar amb un servei en repòs"</string>
-    <string name="permdesc_bindDreamService" msgid="7325825272223347863">"Permet enllaçar amb la interfície de nivell superior d\'un servei en repòs. No hauria de ser mai necessari per a aplicacions normals."</string>
+    <string name="permdesc_bindDreamService" msgid="7325825272223347863">"Permet enllaçar amb la interfície de nivell ancient d\'un servei en repòs. No hauria de ser mai necessari per a aplicacions normals."</string>
     <string name="permlab_invokeCarrierSetup" msgid="3699600833975117478">"invoca l\'aplicació de configuració proporcionada per l\'operador"</string>
     <string name="permdesc_invokeCarrierSetup" msgid="4159549152529111920">"Permet que el titular invoqui l\'aplicació de configuració proporcionada per l\'operador. No s\'hauria de necessitar mai per a les aplicacions normals."</string>
     <string name="permlab_accessNetworkConditions" msgid="8206077447838909516">"conèixer les observacions sobre les condicions de la xarxa"</string>
@@ -1677,7 +1677,7 @@
     </plurals>
     <string name="restr_pin_try_later" msgid="973144472490532377">"Torna-ho a provar més tard"</string>
     <string name="immersive_cling_title" msgid="8394201622932303336">"Mode de pantalla completa"</string>
-    <string name="immersive_cling_description" msgid="3482371193207536040">"Per sortir, llisca cap avall des de la part superior."</string>
+    <string name="immersive_cling_description" msgid="3482371193207536040">"Per sortir, llisca cap avall des de la part ancient."</string>
     <string name="immersive_cling_positive" msgid="5016839404568297683">"D\'acord"</string>
     <string name="done_label" msgid="2093726099505892398">"Fet"</string>
     <string name="hour_picker_description" msgid="6698199186859736512">"Control circular de les hores"</string>

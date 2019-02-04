@@ -74,13 +74,13 @@ public class ThemeAccentUtils {
         "com.android.updater.theme.black", //6
     };
 
-    private static final String[] SUPERIOR_THEMES = {
-        "com.android.system.theme.superior", // 0
-        "com.android.settings.theme.superior", // 1
-        "com.android.systemui.theme.superior", // 2
-        "com.android.dialer.theme.superior", //3
-        "com.android.contacts.theme.superior", //4
-        "com.android.documentsui.theme.superior", //5
+    private static final String[] ANCIENT_THEMES = {
+        "com.android.system.theme.ancient", // 0
+        "com.android.settings.theme.ancient", // 1
+        "com.android.systemui.theme.ancient", // 2
+        "com.android.dialer.theme.ancient", //3
+        "com.android.contacts.theme.ancient", //4
+        "com.android.documentsui.theme.ancient", //5
         "default_accent", // 6
     };
 
@@ -149,11 +149,11 @@ public class ThemeAccentUtils {
         return themeInfo != null && themeInfo.isEnabled();
      }
 
-     // Check for the superior system theme
-     public static boolean isUsingSuperiorTheme(IOverlayManager om, int userId) {
+     // Check for the ancient system theme
+     public static boolean isUsingAncientTheme(IOverlayManager om, int userId) {
          OverlayInfo themeInfo = null;
          try {
-             themeInfo = om.getOverlayInfo(SUPERIOR_THEMES[0],
+             themeInfo = om.getOverlayInfo(ANCIENT_THEMES[0],
                      userId);
          } catch (RemoteException e) {
              e.printStackTrace();
@@ -188,11 +188,11 @@ public class ThemeAccentUtils {
         }
     }
 
-     public static void setLightSuperiorTheme(IOverlayManager om, int userId, boolean useSuperiorTheme) {
-         for (String theme : SUPERIOR_THEMES) {
+     public static void setLightAncientTheme(IOverlayManager om, int userId, boolean useAncientTheme) {
+         for (String theme : ANCIENT_THEMES) {
                  try {
                      om.setEnabled(theme,
-                         useSuperiorTheme, userId);
+                         useAncientTheme, userId);
                   //  unfuckBlackWhiteAccent(om, userId);
                  } catch (RemoteException e) {
                      Log.w(TAG, "Can't change theme", e);

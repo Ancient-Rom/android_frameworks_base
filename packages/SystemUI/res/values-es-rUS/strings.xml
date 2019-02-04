@@ -368,7 +368,7 @@
     <string name="recents_multistack_add_stack_dialog_split_horizontal" msgid="8848514474543427332">"División horizontal"</string>
     <string name="recents_multistack_add_stack_dialog_split_vertical" msgid="9075292233696180813">"División vertical"</string>
     <string name="recents_multistack_add_stack_dialog_split_custom" msgid="4177837597513701943">"División personalizada"</string>
-    <string name="recents_accessibility_split_screen_top" msgid="9056056469282256287">"Dividir pantalla en la parte superior"</string>
+    <string name="recents_accessibility_split_screen_top" msgid="9056056469282256287">"Dividir pantalla en la parte ancient"</string>
     <string name="recents_accessibility_split_screen_left" msgid="8987144699630620019">"Dividir pantalla a la izquierda"</string>
     <string name="recents_accessibility_split_screen_right" msgid="275069779299592867">"Dividir pantalla a la derecha"</string>
     <string name="quick_step_accessibility_toggle_overview" msgid="7171470775439860480">"Ocultar o mostrar Recientes"</string>
@@ -601,7 +601,7 @@
     <string name="tuner_full_importance_settings" msgid="3207312268609236827">"Controles de activación de notificaciones"</string>
     <string name="tuner_full_importance_settings_on" msgid="7545060756610299966">"Activado"</string>
     <string name="tuner_full_importance_settings_off" msgid="8208165412614935229">"Desactivado"</string>
-    <string name="power_notification_controls_description" msgid="4372459941671353358">"Con los controles de activación de notificaciones, puedes establecer un nivel de importancia para las notificaciones de una app. \n\n"<b>"Nivel 5"</b>" \n- Mostrar en la parte superior de la lista de notificaciones. \n- Permitir interrupción en la pantalla completa. \n- Mostrar siempre. \n\n"<b>"Nivel 4"</b>" \n- No permitir interrupción en la pantalla completa. \n- Mostrar siempre. \n\n"<b>"Nivel 3"</b>" \n- No permitir interrupción en la pantalla completa. \n- No mostrar. \n\n"<b>"Nivel 2"</b>" \n- No permitir interrupción en la pantalla completa. \n- No mostrar. \n- No sonar ni vibrar. \n\n"<b>"Nivel 1"</b>" \n- No permitir interrupción en la pantalla completa. \n- No mostrar. \n- No sonar ni vibrar. \n- Ocultar de la pantalla bloqueada y la barra de estado. \n- Mostrar al final de la lista de notificaciones. \n\n"<b>"Nivel 0"</b>" \n- Bloquear todas las notificaciones de la app."</string>
+    <string name="power_notification_controls_description" msgid="4372459941671353358">"Con los controles de activación de notificaciones, puedes establecer un nivel de importancia para las notificaciones de una app. \n\n"<b>"Nivel 5"</b>" \n- Mostrar en la parte ancient de la lista de notificaciones. \n- Permitir interrupción en la pantalla completa. \n- Mostrar siempre. \n\n"<b>"Nivel 4"</b>" \n- No permitir interrupción en la pantalla completa. \n- Mostrar siempre. \n\n"<b>"Nivel 3"</b>" \n- No permitir interrupción en la pantalla completa. \n- No mostrar. \n\n"<b>"Nivel 2"</b>" \n- No permitir interrupción en la pantalla completa. \n- No mostrar. \n- No sonar ni vibrar. \n\n"<b>"Nivel 1"</b>" \n- No permitir interrupción en la pantalla completa. \n- No mostrar. \n- No sonar ni vibrar. \n- Ocultar de la pantalla bloqueada y la barra de estado. \n- Mostrar al final de la lista de notificaciones. \n\n"<b>"Nivel 0"</b>" \n- Bloquear todas las notificaciones de la app."</string>
     <string name="notification_header_default_channel" msgid="7506845022070889909">"Notificaciones"</string>
     <string name="notification_channel_disabled" msgid="344536703863700565">"Ya no verás estas notificaciones"</string>
     <string name="notification_channel_minimized" msgid="1664411570378910931">"Se minimizarán estas notificaciones"</string>
@@ -752,10 +752,10 @@
     <string name="accessibility_action_divider_left_50" msgid="1248083470322193075">"Izquierda: 50%"</string>
     <string name="accessibility_action_divider_left_30" msgid="543324403127069386">"Izquierda: 30%"</string>
     <string name="accessibility_action_divider_right_full" msgid="4639381073802030463">"Pantalla derecha completa"</string>
-    <string name="accessibility_action_divider_top_full" msgid="5357010904067731654">"Pantalla superior completa"</string>
-    <string name="accessibility_action_divider_top_70" msgid="5090779195650364522">"Superior: 70%"</string>
-    <string name="accessibility_action_divider_top_50" msgid="6385859741925078668">"Superior: 50%"</string>
-    <string name="accessibility_action_divider_top_30" msgid="6201455163864841205">"Superior: 30%"</string>
+    <string name="accessibility_action_divider_top_full" msgid="5357010904067731654">"Pantalla ancient completa"</string>
+    <string name="accessibility_action_divider_top_70" msgid="5090779195650364522">"ancient: 70%"</string>
+    <string name="accessibility_action_divider_top_50" msgid="6385859741925078668">"ancient: 50%"</string>
+    <string name="accessibility_action_divider_top_30" msgid="6201455163864841205">"ancient: 30%"</string>
     <string name="accessibility_action_divider_bottom_full" msgid="301433196679548001">"Pantalla inferior completa"</string>
     <string name="accessibility_qs_edit_tile_label" msgid="8374924053307764245">"Posición <xliff:g id="POSITION">%1$d</xliff:g>, <xliff:g id="TILE_NAME">%2$s</xliff:g>. Presiona dos veces para editarla."</string>
     <string name="accessibility_qs_edit_add_tile_label" msgid="8133209638023882667">"<xliff:g id="TILE_NAME">%1$s</xliff:g>. Presiona dos veces para agregarlo."</string>

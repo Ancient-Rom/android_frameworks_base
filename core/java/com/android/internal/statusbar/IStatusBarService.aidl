@@ -104,7 +104,7 @@ interface IStatusBarService
     void hideFingerprintDialog();
 
     /**
-     * Superior
+     * Ancient
      */
     void toggleCameraFlash();
     void toggleRecentApps();

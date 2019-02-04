@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.systemui.superior.batterybar;
+package com.android.systemui.ancient.batterybar;
 
 import android.content.Context;
 import android.content.SharedPreferences;

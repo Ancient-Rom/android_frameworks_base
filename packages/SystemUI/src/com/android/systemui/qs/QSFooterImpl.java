@@ -375,15 +375,15 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     @Override
     public boolean onLongClick(View v) {
         if (v == mSettingsButton) {
-            startOurSuperiorSettingsActivity();
+            startOurAncientSettingsActivity();
         }
         return false;
     }
 
-    private void startOurSuperiorSettingsActivity() {
+    private void startOurAncientSettingsActivity() {
         Intent nIntent = new Intent(Intent.ACTION_MAIN);
         nIntent.setClassName("com.android.settings",
-            "com.android.settings.Settings$SuperiorSettingsActivity");
+            "com.android.settings.Settings$AncientSettingsActivity");
         mActivityStarter.startActivity(nIntent, true /* dismissShade */);
     }
 

@@ -129,7 +129,7 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
         sStyleItems.add(new ThemeTileItem(3, -1,
                 R.string.systemui_theme_style_black, Settings.System.SYSTEM_UI_THEME));
          sStyleItems.add(new ThemeTileItem(4, -1,
-                 R.string.systemui_theme_style_superior, Settings.System.SYSTEM_UI_THEME));
+                 R.string.systemui_theme_style_ancient, Settings.System.SYSTEM_UI_THEME));
     }
 
     private enum Mode {
@@ -289,7 +289,7 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
 
         @Override
         public int getMetricsCategory() {
-            return MetricsEvent.SUPERIOR;
+            return MetricsEvent.ANCIENT;
         }
 
         @Override
@@ -354,7 +354,7 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.SUPERIOR;
+        return MetricsEvent.ANCIENT;
     }
 
     @Override

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.superior;
+package com.android.internal.util.ancient;
 
 import android.app.ActivityManager;
 import android.Manifest;
@@ -66,7 +66,7 @@ import com.android.internal.statusbar.IStatusBarService;
 /**
  * Some custom utilities
  */
-public class SuperiorUtils {
+public class AncientUtils {
 
     public static final String INTENT_SCREENSHOT = "action_handler_screenshot";
     public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";

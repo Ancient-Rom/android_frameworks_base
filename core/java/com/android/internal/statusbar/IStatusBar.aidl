@@ -154,7 +154,7 @@ oneway interface IStatusBar
     void hideFingerprintDialog();
 
     /**
-     * Superior
+     * Ancient
      */
     void toggleCameraFlash();
     // Start SmartNav API
