@@ -2393,9 +2393,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     public boolean isUsingBlackTheme() {
         return ThemeAccentUtils.isUsingBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
-     public boolean isUsingAncientTheme() {
-         return ThemeAccentUtils.isUsingAncientTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
-     }
 
     // Unloads the stock dark theme
     public void unloadStockDarkTheme() {
@@ -4381,7 +4378,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
         boolean useBlackTheme = false;
         boolean useDarkTheme = false;
-        boolean useAncientTheme = false;
         if (mCurrentTheme == 0) {
             // The system wallpaper defines if QS should be light or dark.
             WallpaperColors systemColors = mColorExtractor
@@ -4396,7 +4392,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else {
             useDarkTheme = mCurrentTheme == 2;
             useBlackTheme = mCurrentTheme == 3;
-            useAncientTheme = mCurrentTheme == 4;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             // Check for black and white accent so we don't end up
@@ -4410,14 +4405,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             // unfuckBlackWhiteAccent();
             ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlackTheme);
         }
-        if (isUsingAncientTheme() != useAncientTheme) {
-             // Check for black and white accent so we don't end up
-             // with white on white or black on black
-             // unfuckBlackWhiteAccent();
-             ThemeAccentUtils.setLightAncientTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useAncientTheme);
-         }
 	if (mUiModeManager != null) {
-		mUiModeManager.setNightMode(useDarkTheme || useBlackTheme || useAncientTheme ?
+		mUiModeManager.setNightMode(useDarkTheme || useBlackTheme ?
 			UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
 	}
 
