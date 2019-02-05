@@ -74,16 +74,6 @@ public class ThemeAccentUtils {
         "com.android.updater.theme.black", //6
     };
 
-    private static final String[] ANCIENT_THEMES = {
-        "com.android.system.theme.ancient", // 0
-        "com.android.settings.theme.ancient", // 1
-        "com.android.systemui.theme.ancient", // 2
-        "com.android.dialer.theme.ancient", //3
-        "com.android.contacts.theme.ancient", //4
-        "com.android.documentsui.theme.ancient", //5
-        "default_accent", // 6
-    };
-
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
 
     // Switches theme accent from to another or back to stock
@@ -149,18 +139,6 @@ public class ThemeAccentUtils {
         return themeInfo != null && themeInfo.isEnabled();
      }
 
-     // Check for the ancient system theme
-     public static boolean isUsingAncientTheme(IOverlayManager om, int userId) {
-         OverlayInfo themeInfo = null;
-         try {
-             themeInfo = om.getOverlayInfo(ANCIENT_THEMES[0],
-                     userId);
-         } catch (RemoteException e) {
-             e.printStackTrace();
-         }
-         return themeInfo != null && themeInfo.isEnabled();
-      }
-
     public static void setLightDarkTheme(IOverlayManager om, int userId, boolean useDarkTheme) {
         for (String theme : DARK_THEMES) {
                 try {
@@ -188,17 +166,6 @@ public class ThemeAccentUtils {
         }
     }
 
-     public static void setLightAncientTheme(IOverlayManager om, int userId, boolean useAncientTheme) {
-         for (String theme : ANCIENT_THEMES) {
-                 try {
-                     om.setEnabled(theme,
-                         useAncientTheme, userId);
-                  //  unfuckBlackWhiteAccent(om, userId);
-                 } catch (RemoteException e) {
-                     Log.w(TAG, "Can't change theme", e);
-                 }
-         }
-     }
     // Check for black and white accent overlays
 /*    public static void unfuckBlackWhiteAccent(IOverlayManager om, int userId) {
         OverlayInfo themeInfo = null;
