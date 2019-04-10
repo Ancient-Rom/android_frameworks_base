@@ -6021,6 +6021,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         } finally {
             mWindowManager.continueSurfaceLayout();
         }
+
     }
 
     private final int getLRURecordIndexForAppLocked(IApplicationThread thread) {

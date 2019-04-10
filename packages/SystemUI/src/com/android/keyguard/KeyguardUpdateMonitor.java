@@ -376,7 +376,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 case MSG_POCKET_STATE_CHANGED:
                     updateFingerprintListeningState();
                     break;
-                case MSG_TELEPHONY_CAPABLE:
+               case MSG_TELEPHONY_CAPABLE:
                     updateTelephonyCapable((boolean)msg.obj);
                     break;
                 default:
