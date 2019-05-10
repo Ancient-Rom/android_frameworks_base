@@ -387,8 +387,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     /** Whether to force dark theme if Configuration.UI_MODE_NIGHT_YES. */
     private static final boolean DARK_THEME_IN_NIGHT_MODE = true;
 
-    /** Whether to switch the device into night mode in battery saver. */
-    private static final boolean NIGHT_MODE_IN_BATTERY_SAVER = true;
+    /** Whether to switch the device into night mode in battery saver. (Disabled.) */
+    private static final boolean NIGHT_MODE_IN_BATTERY_SAVER = false;
 
     /**
      * Never let the alpha become zero for surfaces that draw with SRC - otherwise the RenderNode
@@ -1004,7 +1004,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mStatusBarView.setBar(this);
                     mStatusBarView.setPanel(mNotificationPanel);
                     mStatusBarView.setScrimController(mScrimController);
-                    handleCutout(null);
 
                     // CollapsedStatusBarFragment re-inflated PhoneStatusBarView and both of
                     // mStatusBarView.mExpanded and mStatusBarView.mBouncerShowing are false.
@@ -1016,7 +1015,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     if (mHeadsUpManager.hasPinnedHeadsUp()) {
                         mNotificationPanel.notifyBarPanelExpansionChanged();
                     }
-
                     mStatusBarView.setBouncerShowing(mBouncerShowing);
                     if (oldStatusBarView != null) {
                         float fraction = oldStatusBarView.getExpansionFraction();
