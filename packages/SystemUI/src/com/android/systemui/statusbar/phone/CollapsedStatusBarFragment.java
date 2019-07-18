@@ -18,12 +18,17 @@ import static android.app.StatusBarManager.DISABLE_CLOCK;
 import static android.app.StatusBarManager.DISABLE_NOTIFICATION_ICONS;
 import static android.app.StatusBarManager.DISABLE_SYSTEM_INFO;
 
+import android.util.Log;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.annotation.Nullable;
 import android.app.Fragment;
 import android.app.StatusBarManager;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.database.ContentObserver;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -34,6 +39,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
@@ -42,10 +48,12 @@ import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.phone.StatusBarIconController.DarkIconManager;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher;
+import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
+import android.graphics.Rect;
 
 import android.widget.ImageView;
 import android.graphics.Color;
@@ -61,7 +69,7 @@ import android.graphics.PorterDuff.Mode;
  * and keyguard state. Also manages lifecycle to make sure the views it contains are being
  * updated by the StatusBarIconController and DarkIconManager while it is attached.
  */
-public class CollapsedStatusBarFragment extends Fragment implements CommandQueue.Callbacks {
+public class CollapsedStatusBarFragment extends Fragment implements CommandQueue.Callbacks, DarkReceiver {
 
     public static final String TAG = "CollapsedStatusBarFragment";
     private static final String EXTRA_PANEL_STATE = "panel_state";
@@ -105,6 +113,11 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
     private ContentResolver mContentResolver;
 
+    private ImageView ancientLogo;
+    private boolean showLogo;
+
+    private StatusBarObserver mStatusBarObserver = new StatusBarObserver(new Handler());
+	
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
         public void setIsAirplaneMode(NetworkController.IconState icon) {
@@ -138,8 +151,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mDarkIconManager = new DarkIconManager(view.findViewById(R.id.statusIcons));
         mDarkIconManager.setShouldLog(true);
         Dependency.get(StatusBarIconController.class).addIconGroup(mDarkIconManager);
+	Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
         mClockView = mStatusBar.findViewById(R.id.clock);
+	ancientLogo = mStatusBar.findViewById(R.id.status_bar_logo);
         mBatteryBar = mStatusBar.findViewById(R.id.battery_bar);
         mCenterClockLayout = (LinearLayout) mStatusBar.findViewById(R.id.center_clock_layout);
         mRightClock = mStatusBar.findViewById(R.id.right_clock);
@@ -148,6 +163,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         initEmergencyCryptkeeperText();
 	    animateHide(mClockView, false, false);
         initOperatorName();
+	mStatusBarObserver.observe();
+        mStatusBarObserver.update();
         mSettingsObserver.observe();
         updateSettings(true);
     }
@@ -176,6 +193,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void onDestroyView() {
         super.onDestroyView();
         Dependency.get(StatusBarIconController.class).removeIconGroup(mDarkIconManager);
+	Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(this);
         if (mNetworkController.hasEmergencyCryptKeeperText()) {
             mNetworkController.removeCallback(mSignalCallback);
         }
@@ -278,17 +296,23 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideNotificationIconArea(boolean animate) {
         animateHide(mNotificationIconAreaInner, animate, true);
+	if (showLogo) {
+            animateHide(ancientLogo, animate);
+        }
         animateHide(mCenterClockLayout, animate, true);
     }
 
     public void showNotificationIconArea(boolean animate) {
         animateShow(mNotificationIconAreaInner, animate);
+	if (showLogo) {
+            animateShow(ancientLogo, animate);
+        }
         animateShow(mCenterClockLayout, animate);
     }
 
     public void hideOperatorName(boolean animate) {
         if (mOperatorNameFrame != null) {
-            animateHide(mOperatorNameFrame, animate, true);
+            animateHiddenState(mOperatorNameFrame, View.GONE, animate, true);
         }
     }
 
@@ -368,6 +392,46 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
     }
 
+private class StatusBarObserver extends ContentObserver {
+        StatusBarObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO),
+                    false, this, UserHandle.USER_ALL);
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            update();
+        }
+
+        public void update() {
+            showLogo = Settings.System.getIntForUser( getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 1, UserHandle.USER_CURRENT) == 1;
+
+            if (mNotificationIconAreaInner != null) {
+                if (showLogo) {
+                    if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
+                        animateShow(ancientLogo, true);
+                    }
+                } else {
+                    animateHiddenState(ancientLogo, View.GONE, true);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+        int color = DarkIconDispatcher.getTint(area, ancientLogo, tint);
+        if (showLogo){
+            ancientLogo.setColorFilter(color);
+        }
+    }	
+	
     public void updateSettings(boolean animate) {
         mClockStyle = Settings.System.getIntForUser(mContentResolver,
                 Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
