@@ -4640,6 +4640,12 @@ public final class Settings {
         /** @hide */
         private static final Validator OMNI_QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
+	    
+	 /**
+         * Whether to display our du logo in the statusbar for extra swag
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO = "status_bar_logo";
 
         /**
          * @hide
