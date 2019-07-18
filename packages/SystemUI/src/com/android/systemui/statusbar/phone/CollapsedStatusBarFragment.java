@@ -312,7 +312,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideOperatorName(boolean animate) {
         if (mOperatorNameFrame != null) {
-            animateHiddenState(mOperatorNameFrame, View.GONE, animate, true);
+            animateHiddenState(mOperatorNameFrame, View.GONE, animate);
         }
     }
 
