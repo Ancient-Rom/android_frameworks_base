@@ -322,6 +322,25 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
     }
 
+     /**
+     * Animate a view to INVISIBLE or GONE
+     */
+    private void animateHiddenState(final View v, int state, boolean animate) {
+        v.animate().cancel();
+        if (!animate) {
+            v.setAlpha(0f);
+            v.setVisibility(state);
+            return;
+        }
+
+        v.animate()
+                .alpha(0f)
+                .setDuration(160)
+                .setStartDelay(0)
+                .setInterpolator(Interpolators.ALPHA_OUT)
+                .withEndAction(() -> v.setVisibility(state));
+    }
+	
     /**
      * Hides a view.
      */
