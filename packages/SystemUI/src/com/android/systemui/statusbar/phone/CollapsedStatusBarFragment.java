@@ -297,7 +297,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void hideNotificationIconArea(boolean animate) {
         animateHide(mNotificationIconAreaInner, animate, true);
 	if (showLogo) {
-            animateHide(ancientLogo, animate);
+            animateHide(ancientLogo, animate, true);
         }
         animateHide(mCenterClockLayout, animate, true);
     }
