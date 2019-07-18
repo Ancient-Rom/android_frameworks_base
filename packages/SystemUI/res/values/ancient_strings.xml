@@ -96,6 +96,10 @@
     <string name="qs_menu_item_qs_columns">Quickbar columns</string>
     <string name="qs_menu_item_columns_auto">Automatic</string>
 	
+	<!-- syberia logo status bar -->
+    <string name="syberia_logo_title">Ancient logo</string>
+    <string name="syberia_logo_summary">Let everyone know that you\'re using Ancient when they see your screen</string>
+	
     <!-- Theme tile -->
     <string name="systemui_theme_style_title">UI style</string>
     <string name="systemui_theme_style_auto">Automatic</string>
