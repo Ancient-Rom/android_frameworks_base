@@ -57,7 +57,7 @@
             android:src="@drawable/status_bar_logo"
             android:scaleType="centerInside"
             android:paddingLeft="0dp"
-            android:paddingTop="2dp"
+            android:paddingTop="3dp"
             android:paddingRight="2dp"
             android:paddingBottom="2dp"
             android:visibility="gone" 
