@@ -9927,6 +9927,16 @@ public final class Settings {
         public static final String FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES = "force_authorize_substratum_packages";
 
         /**
+         * Whether tethering is allowed to use VPN upstreams
+         * 0 = false, 1 = true
+         * @hide
+         */
+        public static final String TETHERING_ALLOW_VPN_UPSTREAMS = "tethering_allow_vpn_upstreams";
+
+        /** @hide */
+        public static final Validator TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -10282,6 +10292,7 @@ public final class Settings {
             VALIDATORS.put(SMARTBAR_DOUBLETAP_SLEEP, SMARTBAR_DOUBLETAP_SLEEP_VALIDATOR);
             VALIDATORS.put(LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, BOOLEAN_VALIDATOR);
             VALIDATORS.put(LOCK_SCREEN_SHOW_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(TETHERING_ALLOW_VPN_UPSTREAMS, TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR);
         }
 
         /**
