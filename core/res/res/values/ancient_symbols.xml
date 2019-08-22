@@ -274,4 +274,7 @@
   <java-symbol type="string" name="notify_battery_fully_charged_title" />
   <java-symbol type="string" name="notify_battery_fully_charged_text" />
 
+  <!-- Whether device supports internal audio recording -->
+  <java-symbol type="bool" name="config_hasInternalAudioRecordingSupport" />
+
 </resources>
